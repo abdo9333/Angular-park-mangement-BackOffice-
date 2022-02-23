@@ -4,10 +4,18 @@ import { RouterModule, Routes } from '@angular/router';
 import { DefaultLayoutComponent } from './containers';
 import { Page404Component } from './views/pages/page404/page404.component';
 import { Page500Component } from './views/pages/page500/page500.component';
-import { LoginComponent } from './views/pages/login/login.component';
 import { RegisterComponent } from './views/pages/register/register.component';
-
+import { AdminModule } from './admin/admin.module';
+import { LoginComponent } from './components2/login/login.component';
 const routes: Routes = [
+    {
+        path:'admin',
+        loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
+    },
+    {
+        path:'login',
+        component: LoginComponent
+    },
   {
     path: '',
     redirectTo: 'dashboard',
