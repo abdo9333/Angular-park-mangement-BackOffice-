@@ -7,7 +7,13 @@ import { Page500Component } from './views/pages/page500/page500.component';
 import { RegisterComponent } from './views/pages/register/register.component';
 import { AdminModule } from './admin/admin.module';
 import { LoginComponent } from './components2/login/login.component';
+import { TreeDetailsComponent } from './components/tree/tree-details/tree-details.component';
+import { AddTreeComponent } from './components/tree/add-tree/add-tree.component';
+import { TreesListComponent } from './components/tree/trees-list/trees-list.component';
 const routes: Routes = [
+    { path: 'tutorials', component: TreeDetailsComponent },
+    { path: 'tutorials/:id', component: TreesListComponent },
+    { path: 'add', component: AddTreeComponent },
     {
         path:'admin',
         loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)

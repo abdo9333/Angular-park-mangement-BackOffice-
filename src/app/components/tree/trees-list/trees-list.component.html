@@ -1,0 +1,74 @@
+<div *ngIf="viewMode; else editable">
+    <div *ngIf="currentTree.id">
+
+        <h4>Tutorial</h4>
+        <div>
+            <label><strong>id:</strong></label>
+            {{ currentTree.id }}
+        </div>
+        <div>
+            <label><strong>Title:</strong></label> {{ currentTree.name }}
+        </div>
+        <div>
+            <label><strong>Description:</strong></label>
+            {{ currentTree.discription }}
+        </div>
+        <div>
+            <label><strong>historique:</strong></label>
+            {{ currentTree.historique }}
+            <a class="badge badge-warning" style="color:black" routerLink="/tutorials/{{ currentTree.id }}">
+                Edit
+            </a>
+        </div>
+    </div>
+    <div *ngIf="!currentTree">
+        <br />
+        <p>Please click on a Tutorial...</p>
+    </div>
+</div>
+<ng-template #editable>
+    <div *ngIf="currentTree.id" class="edit-form">
+        <h4>Tutorial</h4>
+        <form>
+            <div class="form-group">
+                <label for="title">Name</label>
+                <input type="text" class="form-control" id="title" [(ngModel)]="currentTree.name" name="title" />
+            </div>
+            <div class="form-group">
+                <label for="description">discription</label>
+                <input type="text" class="form-control" id="description" [(ngModel)]="currentTree.discription"
+                    name="description" />
+            </div>
+            <div class="form-group">
+                <label for="description">historique</label>
+                <input type="text" class="form-control" id="description" [(ngModel)]="currentTree.historique"
+                    name="description" />
+            </div>
+            <div class="form-group" style="display: none;">
+                <input type="file" #fileUpload id="fileUpload" name="fileUpload" [(ngModel)]="currentTree.treeImage" accept="image/*">
+                <button mat-button color="warn" (click)="onClick()">
+                    Upload Image
+                </button>
+            </div>
+        </form>
+        <button class="badge badge-danger mr-2" (click)="deleteTree()">
+            Delete
+        </button>
+        <button type="submit" class="badge badge-success mb-2" (click)="updateTree()">
+            Update
+        </button>
+        <p>{{ message }}</p>
+    </div>
+    <!-- upload image -->
+    <form [formGroup]="form" (ngSubmit)="onClick()">
+        <input type="file" #fileUpload id="fileUpload" name="fileUpload" accept="image/*" style="display: none;">
+        <button mat-button color="warn">
+            Upload Image2
+        </button>
+    </form>
+    <!-- end upload image -->
+    <div *ngIf="!currentTree.id">
+        <br />
+        <p>Cannot access this Tutorial...</p>
+    </div>
+</ng-template>

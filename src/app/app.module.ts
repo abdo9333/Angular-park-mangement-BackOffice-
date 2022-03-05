@@ -9,6 +9,8 @@ import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
 
 
 
+
+
 import {
   PERFECT_SCROLLBAR_CONFIG,
   PerfectScrollbarConfigInterface,
@@ -50,6 +52,9 @@ import {
 
 import { IconModule, IconSetService } from '@coreui/icons-angular';
 import { LoginComponent } from './components2/login/login.component';
+import { AddTreeComponent } from './components/tree/add-tree/add-tree.component';
+import { TreeDetailsComponent } from './components/tree/tree-details/tree-details.component';
+import { TreesListComponent } from './components/tree/trees-list/trees-list.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -62,7 +67,7 @@ const APP_CONTAINERS = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, ...APP_CONTAINERS, LoginComponent],
+  declarations: [AppComponent, ...APP_CONTAINERS, LoginComponent, AddTreeComponent, TreeDetailsComponent, TreesListComponent],
   imports: [
     BrowserModule,
     FormsModule,
