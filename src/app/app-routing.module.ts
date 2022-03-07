@@ -16,6 +16,10 @@ import { BirdListComponent } from './components/bird/bird-list/bird-list.compone
 import { SportDetailsComponent } from './components/sport/sport-details/sport-details.component';
 import { AddSportComponent } from './components/sport/add-sport/add-sport.component';
 import { SportListComponent } from './components/sport/sport-list/sport-list.component';
+import { HandicapDetailsComponent } from './components/handicap/handicap-details/handicap-details.component';
+import { AddHandicapComponent } from './components/handicap/add-handicap/add-handicap.component';
+import { HandicapListComponent } from './components/handicap/handicap-list/handicap-list.component';
+
 const routes: Routes = [
     {
         path:'admin',
@@ -47,8 +51,12 @@ const routes: Routes = [
       { path: 'add-tree', component: AddTreeComponent },
       // sport routing
       { path: 'sport-details', component: SportDetailsComponent },
-      { path: 'tree-list/:id', component: SportListComponent },
-      { path: 'add-tree', component: AddSportComponent },
+      { path: 'sport-list/:id', component: SportListComponent },
+      { path: 'add-sport', component: AddSportComponent },
+      // handicap routing
+      { path: 'handicap-details', component: HandicapDetailsComponent },
+      { path: 'handicap-list/:id', component: HandicapListComponent },
+      { path: 'add-handicap', component: AddHandicapComponent },
       {
         path: 'dashboard',
         loadChildren: () =>
