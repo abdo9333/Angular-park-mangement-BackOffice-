@@ -2,6 +2,6 @@ export class Handicap {
   id?: any;
   name?: string;
   discription?: string;
-  categorie?: string;
+  historique?: string;
   handicapImage?: string;
 }
