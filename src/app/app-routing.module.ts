@@ -13,6 +13,9 @@ import { TreesListComponent } from './components/tree/trees-list/trees-list.comp
 import { AddBirdComponent } from './components/bird/add-bird/add-bird.component';
 import { BirdDetailsComponent } from './components/bird/bird-details/bird-details.component';
 import { BirdListComponent } from './components/bird/bird-list/bird-list.component';
+import { SportDetailsComponent } from './components/sport/sport-details/sport-details.component';
+import { AddSportComponent } from './components/sport/add-sport/add-sport.component';
+import { SportListComponent } from './components/sport/sport-list/sport-list.component';
 const routes: Routes = [
     {
         path:'admin',
@@ -42,6 +45,10 @@ const routes: Routes = [
       { path: 'tree-details', component: TreeDetailsComponent },
       { path: 'tree-list/:id', component: TreesListComponent },
       { path: 'add-tree', component: AddTreeComponent },
+      // sport routing
+      { path: 'sport-details', component: SportDetailsComponent },
+      { path: 'tree-list/:id', component: SportListComponent },
+      { path: 'add-tree', component: AddSportComponent },
       {
         path: 'dashboard',
         loadChildren: () =>
