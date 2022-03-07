@@ -1,0 +1,112 @@
+<div *ngIf="viewMode; else editable_handicap">
+  <div *ngIf="currentHandicap.id">
+    <h4>Handicap</h4>
+    <div>
+      <label><strong>id:</strong></label>
+      {{ currentHandicap.id }}
+    </div>
+    <div>
+      <img src="{{ currentHandicap.handicapImage }}" style="height: 150px" />
+    </div>
+    <div>
+      <label><strong>Title:</strong></label> {{ currentHandicap.name }}
+    </div>
+    <div>
+      <label><strong>Description:</strong></label>
+      {{ currentHandicap.discription }}
+    </div>
+    <div>
+      <label><strong>historique:</strong></label>
+      {{ currentHandicap.historique }}
+      <a
+        class="badge badge-warning"
+        style="color: black"
+        routerLink="/handicap-list/{{ currentHandicap.id }}"
+      >
+        Edit
+      </a>
+    </div>
+  </div>
+  <div *ngIf="!currentHandicap">
+    <br />
+    <p>Please click on a Handicap...</p>
+  </div>
+</div>
+<ng-template #editable_handicap>
+  <div *ngIf="currentHandicap.id" class="edit-form">
+    <h4>Handicap</h4>
+    <form>
+      <div class="form-group">
+        <label for="title">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          [(ngModel)]="currentHandicap.name"
+          name="title"
+        />
+      </div>
+      <div class="form-group">
+        <label for="description">discription</label>
+        <input
+          type="text"
+          class="form-control"
+          id="description"
+          [(ngModel)]="currentHandicap.discription"
+          name="description"
+        />
+      </div>
+      <div class="form-group">
+        <label for="description">historique</label>
+        <input
+          type="text"
+          class="form-control"
+          id="description"
+          [(ngModel)]="currentHandicap.historique"
+          name="description"
+        />
+      </div>
+      <div class="form-group" style="display: none">
+        <input
+          type="file"
+          #fileUpload
+          id="fileUpload"
+          name="fileUpload"
+          [(ngModel)]="currentHandicap.handicapImage"
+          accept="image/*"
+        />
+        <button mat-button color="warn" (click)="onClick()">
+          Upload Image
+        </button>
+      </div>
+    </form>
+    <button class="badge badge-danger mr-2" (click)="deleteHandicap()">
+      Delete
+    </button>
+    <button
+      type="submit"
+      class="badge badge-success mb-2"
+      (click)="updateHandicap()"
+    >
+      Update
+    </button>
+    <p>{{ message }}</p>
+  </div>
+  <!-- upload image -->
+  <form [formGroup]="form" (ngSubmit)="onClick()">
+    <input
+      type="file"
+      #fileUpload
+      id="fileUpload"
+      name="fileUpload"
+      accept="image/*"
+      style="display: none"
+    />
+    <button mat-button color="warn">Upload Image2</button>
+  </form>
+  <!-- end upload image -->
+  <div *ngIf="!currentHandicap.id">
+    <br />
+    <p>Cannot access this Handicap...</p>
+  </div>
+</ng-template>
