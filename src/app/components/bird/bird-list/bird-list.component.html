@@ -1,0 +1,82 @@
+
+
+
+<div *ngIf="viewMode; else editable">
+    <div *ngIf="currentBird.id">
+
+        <h4>Birds</h4>
+        <div>
+            <label><strong>id:</strong></label>
+            {{ currentBird.id }}
+        </div>
+        <div>
+            <img  src="{{ currentBird.birdImage }}" style="height: 150px;">
+        </div>
+        <div>
+            <label><strong>Title:</strong></label> {{ currentBird.name }}
+        </div>
+        <div>
+            <label><strong>Description:</strong></label>
+            {{ currentBird.discription }}
+        </div>
+        <div>
+            <label><strong>species:</strong></label>
+            {{ currentBird.species }}
+            <a class="badge badge-warning" style="color:black" routerLink="/bird-list/{{ currentBird.id }}">
+                Edit
+            </a>
+        </div>
+    </div>
+    <div *ngIf="!currentBird">
+        <br />
+        <p>Please click on a Birds...</p>
+    </div>
+</div>
+<ng-template #editable>
+    <div *ngIf="currentBird.id" class="edit-form">
+        <h4>Birds</h4>
+        <form cForm>
+            <div class="mb-3">
+            <div class="form-group">
+                <label for="title">Name</label>
+                <textarea type="text" class="form-control" rows="3" id="title" [(ngModel)]="currentBird.name" name="title" ></textarea>
+            </div>
+            <div class="form-group">
+                <label for="description">discription</label>
+                <input type="text" class="form-control" id="description" [(ngModel)]="currentBird.discription"
+                    name="description" />
+            </div>
+            <div class="form-group">
+                <label for="description">species</label>
+                <input type="text" class="form-control" id="description" [(ngModel)]="currentBird.species"
+                    name="description" />
+            </div>
+            <div class="form-group" style="display: none;">
+                <input type="file" #fileUpload id="fileUpload" name="fileUpload" [(ngModel)]="currentBird.birdImage" accept="image/*">
+                <button mat-button color="warn" (click)="onClick()">
+                    Upload Image
+                </button>
+            </div>
+        </div>
+        </form>
+        <button class="badge badge-danger mr-2" (click)="deleteBird()">
+            Delete
+        </button>
+        <button type="submit" class="badge badge-success mb-2" (click)="updateBird()">
+            Update
+        </button>
+        <p>{{ message }}</p>
+    </div>
+    <!-- upload image -->
+    <form [formGroup]="form" (ngSubmit)="onClick()">
+        <input type="file" #fileUpload id="fileUpload" name="fileUpload" accept="image/*" style="display: none;">
+        <button mat-button color="warn">
+            Upload Image2
+        </button>
+    </form>
+    <!-- end upload image -->
+    <div *ngIf="!currentBird.id">
+        <br />
+        <p>Cannot access this Bird...</p> {{ currentBird.id }}
+    </div>
+</ng-template>

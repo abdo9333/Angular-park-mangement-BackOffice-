@@ -10,10 +10,10 @@ import { LoginComponent } from './components2/login/login.component';
 import { TreeDetailsComponent } from './components/tree/tree-details/tree-details.component';
 import { AddTreeComponent } from './components/tree/add-tree/add-tree.component';
 import { TreesListComponent } from './components/tree/trees-list/trees-list.component';
+import { AddBirdComponent } from './components/bird/add-bird/add-bird.component';
+import { BirdDetailsComponent } from './components/bird/bird-details/bird-details.component';
+import { BirdListComponent } from './components/bird/bird-list/bird-list.component';
 const routes: Routes = [
-    { path: 'tutorials', component: TreeDetailsComponent },
-    { path: 'tutorials/:id', component: TreesListComponent },
-    { path: 'add', component: AddTreeComponent },
     {
         path:'admin',
         loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
@@ -34,6 +34,14 @@ const routes: Routes = [
       title: 'Home'
     },
     children: [
+          // birds routing
+      { path: 'addBird', component: AddBirdComponent},
+      { path: 'bird-details', component: BirdDetailsComponent},
+      { path: 'bird-list/:id', component: BirdListComponent},
+      // trees routing
+      { path: 'tree-details', component: TreeDetailsComponent },
+      { path: 'tree-list/:id', component: TreesListComponent },
+      { path: 'add-tree', component: AddTreeComponent },
       {
         path: 'dashboard',
         loadChildren: () =>

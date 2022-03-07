@@ -6,11 +6,11 @@
           <c-card-group>
             <c-card class="p-4">
               <c-card-body>
-                <form cForm [formGroup]="add_tree_Form" (ngSubmit)="onSubmitAddTree()"> 
-                  <h1>Tree</h1>
-                  <p class="text-medium-emphasis">Ajouter une nouvelle arbre</p>   
+                <form cForm [formGroup]="add_bird_Form" (ngSubmit)="onSubmitAddBird()"> 
+                  <h1>Bird</h1>
+                  <p class="text-medium-emphasis">Ajouter une nouvelle oiseaux</p>   
                     <input  formControlName="name"
-                      autoComplete="current-password"
+                      autoComplete="name"
                       cFormControl
                       placeholder="Nom"
                       type="text"
@@ -22,9 +22,9 @@
                     type="text"
                     />
                     <input 
-                    autoComplete="historique" 
-                    formControlName="historique" 
-                    cFormControl placeholder="historique" 
+                    autoComplete="species" 
+                    formControlName="species" 
+                    cFormControl placeholder="species" 
                     type="text"
                     /> 
                   <c-row>

@@ -1,41 +1,40 @@
 import { Component, OnInit } from '@angular/core';
-import { TreeService } from 'src/app/services/tree.service';
+import { BirdsService } from 'src/app/services/birds.service';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 import {  FormGroup, FormControl, Validators } from '@angular/forms';
 
-
-
 @Component({
-  selector: 'app-add-tree',
-  templateUrl: './add-tree.component.html',
-  styleUrls: ['./add-tree.component.scss']
+  selector: 'app-add-bird',
+  templateUrl: './add-bird.component.html',
+  styleUrls: ['./add-bird.component.scss']
 })
-export class AddTreeComponent implements OnInit {
+export class AddBirdComponent implements OnInit {
 
-    add_tree_Form : FormGroup;
-    
+    add_bird_Form : FormGroup;
+
+
   constructor(
     private router: Router,
-    private treeService: TreeService
+    private birdService : BirdsService
   ) { }
 
   ngOnInit(): void {
-    this.add_tree_Form = new FormGroup({
+    this.add_bird_Form = new FormGroup({
         name: new FormControl(null, [Validators.required, Validators.minLength(6)]),
         discription:  new FormControl(null, [Validators.required, Validators.minLength(3)]),
-        historique:  new FormControl(null, [Validators.required, Validators.minLength(3)])
+        species:  new FormControl(null, [Validators.required, Validators.minLength(3)])
       });
   }
 
-  onSubmitAddTree() {
-    if(this.add_tree_Form.invalid) {
+  onSubmitAddBird() {
+    if(this.add_bird_Form.invalid) {
         return;
       }
-      this.treeService.create(this.add_tree_Form.value).pipe(
+      this.birdService.create(this.add_bird_Form.value).pipe(
         map(token => this.router.navigate(['']))
       ).subscribe()
     
   }
- 
+
 }

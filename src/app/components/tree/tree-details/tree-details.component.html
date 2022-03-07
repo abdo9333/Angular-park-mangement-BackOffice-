@@ -1,19 +1,4 @@
-<h4>Tree List</h4> <!--
-    <c-card-group class="mb-4">
-        <c-card *ngFor="let tree of trees">
-          <img cCardImg="top" src="{{ tree.treeImage }}" style="height: 150px;">
-          <c-card-body>
-            <h5 cCardTitle>{{ tree.name }}</h5>
-            <p cCardText>
-                {{ tree.discription }}
-            </p>
-            <p cCardText>
-              <small class="text-medium-emphasis">{{ tree.historique }}</small>
-            </p>
-            <button cButton color="light">Go somewhere</button>
-          </c-card-body>
-        </c-card>
-      </c-card-group>  -->
+<h4>Tree List</h4> 
       <div class="list row">
         <div class="col-md-6">
           <h4>Tree List</h4>
@@ -22,7 +7,7 @@
               class="list-group-item"
               *ngFor="let tree of trees; let i = index"
               [class.active]="i == currentIndex"
-              (click)="setActiveTutorial(tree, i)"
+              (click)="setActiveTree(tree, i)"
             >
               {{ tree.name }}
             </li>

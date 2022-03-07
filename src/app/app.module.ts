@@ -55,6 +55,9 @@ import { LoginComponent } from './components2/login/login.component';
 import { AddTreeComponent } from './components/tree/add-tree/add-tree.component';
 import { TreeDetailsComponent } from './components/tree/tree-details/tree-details.component';
 import { TreesListComponent } from './components/tree/trees-list/trees-list.component';
+import { AddBirdComponent } from './components/bird/add-bird/add-bird.component';
+import { BirdDetailsComponent } from './components/bird/bird-details/bird-details.component';
+import { BirdListComponent } from './components/bird/bird-list/bird-list.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -67,7 +70,7 @@ const APP_CONTAINERS = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, ...APP_CONTAINERS, LoginComponent, AddTreeComponent, TreeDetailsComponent, TreesListComponent],
+  declarations: [AppComponent, ...APP_CONTAINERS, LoginComponent, AddTreeComponent, TreeDetailsComponent, TreesListComponent, AddBirdComponent, BirdDetailsComponent, BirdListComponent],
   imports: [
     BrowserModule,
     FormsModule,

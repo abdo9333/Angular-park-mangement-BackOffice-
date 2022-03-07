@@ -1,10 +1,13 @@
-<div *ngIf="viewMode; else editable">
+<div *ngIf="viewMode; else editable_tree">
     <div *ngIf="currentTree.id">
 
-        <h4>Tutorial</h4>
+        <h4>Tree</h4>
         <div>
             <label><strong>id:</strong></label>
             {{ currentTree.id }}
+        </div>
+        <div>
+            <img  src="{{ currentTree.treeImage }}" style="height: 150px;">
         </div>
         <div>
             <label><strong>Title:</strong></label> {{ currentTree.name }}
@@ -16,19 +19,19 @@
         <div>
             <label><strong>historique:</strong></label>
             {{ currentTree.historique }}
-            <a class="badge badge-warning" style="color:black" routerLink="/tutorials/{{ currentTree.id }}">
+            <a class="badge badge-warning" style="color:black" routerLink="/tree-list/{{ currentTree.id }}">
                 Edit
             </a>
         </div>
     </div>
     <div *ngIf="!currentTree">
         <br />
-        <p>Please click on a Tutorial...</p>
+        <p>Please click on a Tree...</p>
     </div>
 </div>
-<ng-template #editable>
+<ng-template #editable_tree>
     <div *ngIf="currentTree.id" class="edit-form">
-        <h4>Tutorial</h4>
+        <h4>Tree</h4>
         <form>
             <div class="form-group">
                 <label for="title">Name</label>
@@ -69,6 +72,6 @@
     <!-- end upload image -->
     <div *ngIf="!currentTree.id">
         <br />
-        <p>Cannot access this Tutorial...</p>
+        <p>Cannot access this Tree...</p>
     </div>
 </ng-template>

@@ -1,24 +1,20 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpRequest, HttpEvent } from '@angular/common/http';import { Observable } from 'rxjs';
-import { Tree } from '../models/tree/tree.model';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { Bird } from '../models/bird/bird.model';
 
-
-
-const baseUrl = 'http://192.168.33.10:3002/trees';
-
+const baseUrl = 'http://192.168.33.10:3002/bird';
 
 @Injectable({
   providedIn: 'root'
 })
-export class TreeService {
+export class BirdsService {
 
   constructor(private http: HttpClient) { }
-
-  getAll(): Observable<Tree[]> {
-    return this.http.get<Tree[]>(baseUrl);
+  getAll(): Observable<Bird[]> {
+    return this.http.get<Bird[]>(baseUrl);
   }
-  get(id: any): Observable<Tree> {
+  get(id: any): Observable<Bird> {
     return this.http.get(`${baseUrl}/${id}`);
   }
   create(data: any): Observable<any> {
@@ -26,10 +22,10 @@ export class TreeService {
   }
   update(id: any, data: any): Observable<any> {
       console.log(data);
-    return this.http.put(`${baseUrl}/updatetree/${id}`, data);
+    return this.http.put(`${baseUrl}/updatebird/${id}`, data);
   }
   delete(id: any): Observable<any> {
-    return this.http.delete(`${baseUrl}/deletetree/${id}`);
+    return this.http.delete(`${baseUrl}/deletebird/${id}`);
   }
   
 // image 
@@ -40,7 +36,5 @@ export class TreeService {
       observe: 'events'
     })
   }
-
-//end image
 
 }
