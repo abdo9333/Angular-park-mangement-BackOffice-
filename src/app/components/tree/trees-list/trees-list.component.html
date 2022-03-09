@@ -2,6 +2,9 @@
     <div *ngIf="currentTree.id">
 
         <h4>Tree</h4>
+        <a class="badge badge-warning" style="color:black" routerLink="/tree-list/{{ currentTree.id }}">
+            Edit
+        </a>
         <div>
             <label><strong>id:</strong></label>
             {{ currentTree.id }}

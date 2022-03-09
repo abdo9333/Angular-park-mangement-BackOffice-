@@ -1,22 +1,14 @@
-<h4>Tree List</h4> 
-      <div class="list row">
-        <div class="col-md-6">
-          <h4>Tree List</h4>
-          <ul class="list-group">
-            <li
-              class="list-group-item"
-              *ngFor="let tree of trees; let i = index"
-              [class.active]="i == currentIndex"
-              (click)="setActiveTree(tree, i)"
-            >
-              {{ tree.name }}
+<div class="list row">
+    <div class="col-md-6">
+        <h4>Tree List</h4>
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let tree of trees; let i = index" [class.active]="i == currentIndex"
+                (click)="setActiveTree(tree, i)">
+                {{ tree.name }}
             </li>
-          </ul>
-        </div>
-        <div class="col-md-6">
-          <app-trees-list
-            [viewMode]="true"
-            [currentTree]="currentTree"
-          ></app-trees-list>
-        </div>
-      </div>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <app-trees-list [viewMode]="true" [currentTree]="currentTree"></app-trees-list>
+    </div>
+</div>
