@@ -1,0 +1,22 @@
+<h4>Sport List</h4>
+<div class="list row">
+  <div class="col-md-6">
+    <h4>Sport List</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let sport of sport; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveSport(sport, i)"
+      >
+        {{ sport.name }}
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <app-sport-list
+      [viewMode]="true"
+      [currentSport]="currentSport"
+    ></app-sport-list>
+  </div>
+</div>

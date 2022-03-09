@@ -1,0 +1,50 @@
+<div class="bg-light min-vh-100 d-flex flex-row align-items-center">
+  <c-container>
+    <c-row class="justify-content-center">
+      <c-col md="8">
+        <c-card-group>
+          <c-card class="p-4">
+            <c-card-body>
+              <form
+                cForm
+                [formGroup]="add_sport_Form"
+                (ngSubmit)="onSubmitAddSport()"
+              >
+                <h1>Sport</h1>
+                <p class="text-medium-emphasis">Ajouter un nouveau sport</p>
+                <input
+                  formControlName="name"
+                  autoComplete="current-password"
+                  cFormControl
+                  placeholder="Nom"
+                  type="text"
+                />
+                <input
+                  autoComplete="discription"
+                  formControlName="discription"
+                  cFormControl
+                  placeholder="Discrtiption"
+                  type="text"
+                />
+                <input
+                  autoComplete="categorie"
+                  formControlName="categorie"
+                  cFormControl
+                  placeholder="categorie"
+                  type="text"
+                />
+                <c-row>
+                  <c-col xs="6">
+                    <button cButton class="px-4" color="primary">
+                      Ajouter
+                    </button>
+                  </c-col>
+                </c-row>
+              </form>
+            </c-card-body>
+          </c-card>
+        </c-card-group>
+      </c-col>
+    </c-row>
+  </c-container>
+</div>
