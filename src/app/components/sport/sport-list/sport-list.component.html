@@ -1,3 +1,6 @@
+<div>  
+    <a class="badge badge-warning" style="color:black" routerLink='/add-sport'>add Sport</a>
+</div>
 <div *ngIf="viewMode; else editable_sport">
   <div *ngIf="currentSport.id">
     <h4>Sport</h4>
@@ -107,6 +110,6 @@
   <!-- end upload image -->
   <div *ngIf="!currentSport.id">
     <br />
-    <p>Cannot access this Tree...</p>
+    <p>Cannot access this Sport...</p>
   </div>
 </ng-template>

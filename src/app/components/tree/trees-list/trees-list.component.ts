@@ -6,6 +6,7 @@ import {  FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms
 import { Tree } from 'src/app/models/tree/tree.model';
 import { Observable, of, catchError } from 'rxjs';
 import { HttpErrorResponse, HttpEventType, HttpResponse } from '@angular/common/http';
+import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels} from '@techiediaries/ngx-qrcode';
 
 //file
 export interface File {
@@ -21,7 +22,7 @@ export interface File {
 })
 export class TreesListComponent implements OnInit {
 
-    //file 
+    //file upload
     @ViewChild("fileUpload", {static: false}) fileUpload: ElementRef;
 
     file: File = {
@@ -29,18 +30,23 @@ export class TreesListComponent implements OnInit {
       inProgress: false,
       progress: 0
     };
-  
     form: FormGroup;
 
-   // origin = this.window.location.origin;
-
-
+    // View element mode
     @Input() viewMode = false;
     @Input() currentTree: Tree = {
     name: '',
     discription: '',
-    historique: ''
+    historique: '',
+    url : ''
   };
+  
+  // Qr code 
+  baseUrl = '/trees/';   
+  elementId = ''; 
+  elementType = NgxQrcodeElementTypes.URL;
+  correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
+  
 
   message = '';
 
@@ -52,10 +58,20 @@ export class TreesListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    // Qr code value trying to fitch element id / return undefined 
+    this.elementId = this.baseUrl + this.route.snapshot.params["id"];
+
+    console.log(this.route.snapshot.params["id"]);
+
     if (!this.viewMode) {
         this.message = '';
         this.getTree(this.route.snapshot.params["id"]);
+        // Qr code value trying to fitch element id / return undefined 
+        this.treeID(this.route.snapshot.params["id"]);
+        // Qr code value trying to fitch element id / return undefined 
+        this.elementId  = this.baseUrl + this.treeID(this.route.snapshot.params["id"]);
       }
+      
       this.form = this.formBuilder.group({
         id: [{value: null, disabled: true}, [Validators.required]],
         name: [null, [Validators.required]],
@@ -65,12 +81,21 @@ export class TreesListComponent implements OnInit {
       });
   }
 
+  treeID(id: string) {
+    this.treeService.get(id)
+      .subscribe({
+        next: (data) => {
+          this.elementId = this.baseUrl + data.id; // trying to fitch id from
+        },
+        error: (e) => console.error(e)
+      });
+  }
+  
   getTree(id: string): void {
     this.treeService.get(id)
       .subscribe({
         next: (data) => {
           this.currentTree = data;
-          console.log(data);
         },
         error: (e) => console.error(e)
       });

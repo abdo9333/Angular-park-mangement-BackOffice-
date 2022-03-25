@@ -5,10 +5,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 
-
-
-
+import { QRCodeModule } from 'angularx-qrcode';
 
 
 import {
@@ -82,6 +81,8 @@ const APP_CONTAINERS = [
     HandicapDetailsComponent,
     HandicapListComponent,],
   imports: [
+    QRCodeModule,
+    NgxQRCodeModule,
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,

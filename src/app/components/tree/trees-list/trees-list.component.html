@@ -5,12 +5,22 @@
         <a class="badge badge-warning" style="color:black" routerLink="/tree-list/{{ currentTree.id }}">
             Edit
         </a>
+        <ngx-qrcode 
+            [elementType]="elementType" 
+            [errorCorrectionLevel]="correctionLevel" 
+            [value]="elementId "
+            alt="QR Code"
+            cssClass="bshadow">
+        </ngx-qrcode>
+
+        <textarea [(ngModel)]="elementId "></textarea>
+
         <div>
             <label><strong>id:</strong></label>
             {{ currentTree.id }}
         </div>
         <div>
-            <img  src="{{ currentTree.treeImage }}" style="height: 150px;">
+            <img src="{{ currentTree.treeImage }}" style="height: 150px;">
         </div>
         <div>
             <label><strong>Title:</strong></label> {{ currentTree.name }}
@@ -51,7 +61,8 @@
                     name="description" />
             </div>
             <div class="form-group" style="display: none;">
-                <input type="file" #fileUpload id="fileUpload" name="fileUpload" [(ngModel)]="currentTree.treeImage" accept="image/*">
+                <input type="file" #fileUpload id="fileUpload" name="fileUpload" [(ngModel)]="currentTree.treeImage"
+                    accept="image/*">
                 <button mat-button color="warn" (click)="onClick()">
                     Upload Image
                 </button>

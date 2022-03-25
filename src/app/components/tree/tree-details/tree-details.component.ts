@@ -13,7 +13,7 @@ export class TreeDetailsComponent implements OnInit {
     currentTree: Tree = {};
     currentIndex = -1;
     name = '';
-
+  
   constructor( private treeService: TreeService) { }
 
   ngOnInit(): void {
@@ -25,7 +25,6 @@ export class TreeDetailsComponent implements OnInit {
       .subscribe({
         next: (data) => {
           this.trees = data;
-          console.log(data);
         },
         error: (e) => console.error(e)
       });

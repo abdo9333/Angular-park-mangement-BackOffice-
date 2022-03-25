@@ -4,4 +4,5 @@ export class Tree {
     discription?: string;
     historique?: string;
     treeImage?: string;
+    url?:any;
 }

@@ -16,7 +16,7 @@ export class SportService {
     return this.http.get<Sport[]>(baseUrl);
   }
   get(id: any): Observable<Sport> {
-    return this.http.get(`${baseUrl}/${id}`);
+    return this.http.get(`${baseUrl}/sport/${id}`);
   }
   create(data: any): Observable<any> {
     return this.http.post(baseUrl + '/create', data);
