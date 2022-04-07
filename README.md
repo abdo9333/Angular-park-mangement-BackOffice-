@@ -1,5 +1,15 @@
+## Features
 
+-User authentication page
+-CRUD Forms
+-Uplaod image for tree, Birds, Sports
+-Qr code generter for trees
 
+<img src="img/connexion_page.jpg" alt="CRUD usage" />
+#####
+<img src="img/list_arbres.jpg" alt="CRUD usage" />
+#####
+<img src="img/editpage.jpg" alt="CRUD usage" />
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
