@@ -6,7 +6,7 @@
           <c-card-group>
             <c-card class="p-4">
               <c-card-body>
-                <form cForm [formGroup]="add_tree_Form" (ngSubmit)="onSubmitAddTree()"> 
+                <form class="tree_add_form" cForm [formGroup]="add_tree_Form" (ngSubmit)="onSubmitAddTree()"> 
                   <h1>Tree</h1>
                   <p class="text-medium-emphasis">Ajouter une nouvelle arbre</p>   
                     <input  formControlName="name"
@@ -20,6 +20,7 @@
                     formControlName="discription" 
                     cFormControl placeholder="Discrtiption" 
                     type="text"
+                    class="input_margin"
                     />
                     <input 
                     autoComplete="historique" 
@@ -29,7 +30,7 @@
                     /> 
                   <c-row>
                     <c-col xs="6">
-                      <button cButton class="px-4" color="primary">
+                      <button style="margin-top: 15px;" cButton class="px-4" color="primary">
                         Ajouter
                       </button>
                     </c-col>

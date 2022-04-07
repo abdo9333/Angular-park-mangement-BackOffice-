@@ -1,9 +1,15 @@
 <div>  
-    <a class="badge badge-warning" style="color:black" routerLink='/add-sport'>add Sport</a>
+    <a class="badge badge-warning" class="btn btn-success" style="color:white" routerLink='/add-sport'>Ajouter un sport</a>
 </div>
 <div *ngIf="viewMode; else editable_sport">
   <div *ngIf="currentSport.id">
-    <h4>Sport</h4>
+    <a
+        class="badge badge-warning"
+        class="btn btn-primary" style="color:white; margin-top:10px; margin-bottom: 10px;"
+        routerLink="/sport-list/{{ currentSport.id }}"
+      >
+      Éditer
+      </a>
     <div>
       <label><strong>id:</strong></label>
       {{ currentSport.id }}
@@ -21,13 +27,7 @@
     <div>
       <label><strong>categorie:</strong></label>
       {{ currentSport.categorie }}
-      <a
-        class="badge badge-warning"
-        style="color: black"
-        routerLink="/sport-list/{{ currentSport.id }}"
-      >
-        Edit
-      </a>
+      
     </div>
   </div>
   <div *ngIf="!currentSport">
@@ -38,7 +38,7 @@
 <ng-template #editable_sport>
   <div *ngIf="currentSport.id" class="edit-form">
     <h4>Sport</h4>
-    <form>
+    <form style="margin-bottom: 10px">
       <div class="form-group">
         <label for="title">Name</label>
         <input
@@ -83,15 +83,16 @@
         </button>
       </div>
     </form>
-    <button class="badge badge-danger mr-2" (click)="deleteSport()">
-      Delete
+    <button class="btn btn-danger" (click)="deleteSport()">
+        Supprimer
     </button>
     <button
       type="submit"
-      class="badge badge-success mb-2"
+      style="margin-left: 10px;"
+        class="btn btn-info"
       (click)="updateSport()"
     >
-      Update
+    Mettre à jour
     </button>
     <p>{{ message }}</p>
   </div>
@@ -105,7 +106,7 @@
       accept="image/*"
       style="display: none"
     />
-    <button mat-button color="warn">Upload Image2</button>
+    <button mat-button class="btn btn-primary">Upload Image2</button>
   </form>
   <!-- end upload image -->
   <div *ngIf="!currentSport.id">

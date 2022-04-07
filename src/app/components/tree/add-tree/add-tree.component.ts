@@ -33,7 +33,7 @@ export class AddTreeComponent implements OnInit {
         return;
       }
       this.treeService.create(this.add_tree_Form.value).pipe(
-        map(token => this.router.navigate(['']))
+        map(token => this.router.navigate(['/tree-details']))
       ).subscribe()
     
   }

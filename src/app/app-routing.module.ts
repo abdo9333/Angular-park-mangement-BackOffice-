@@ -25,15 +25,15 @@ const routes: Routes = [
         path:'admin',
         loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
     },
-    {
-        path:'login',
-        component: LoginComponent
-    },
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
+  {
+    path:'login',
+    component: LoginComponent
+},
   {
     path: '',
     component: DefaultLayoutComponent,

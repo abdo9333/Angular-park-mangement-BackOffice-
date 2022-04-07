@@ -19,20 +19,16 @@
       alt: 'CoreUI Logo'
     }"
     routerLink="./"
-  >
+  > <!---->
   </c-sidebar-brand>
     <perfect-scrollbar [config]="perfectScrollbarConfig">
   <!--  [perfectScrollbar]="perfectScrollbarConfig"-->
-  <c-sidebar-nav
-    [navItems]="navItems"
-  >
+  <c-sidebar-nav>
+      <!-- Guid d'uilistation -->
+      <h3 style="text-align: center; margin-top: 10px;">Guide d'uilisation</h3>
+      <p style="text-align: justify; margin: 22px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce finibus dignissim est eget tristique. Ut vulputate, ex et rutrum luctus, tellus tellus molestie erat, sed interdum lacus mi sit amet nunc. Duis suscipit venenatis felis, eu rutrum arcu imperdiet in. Nullam ac diam a libero blandit ullamcorper. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla sit amet tellus sagittis, viverra ipsum ac, ultrices augue. Mauris nec suscipit libero.</p>
   </c-sidebar-nav>
     </perfect-scrollbar>
-  <c-sidebar-toggler
-    *ngIf="!sidebar.narrow"
-    toggle="unfoldable"
-    cSidebarToggle="sidebar"
-  ></c-sidebar-toggler>
 </c-sidebar>
 
 <!--main-->

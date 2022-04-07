@@ -42,7 +42,7 @@ export class TreesListComponent implements OnInit {
   };
   
   // Qr code 
-  baseUrl = '/trees/';   
+  baseUrl = '/tree/';   
   elementId = ''; 
   elementType = NgxQrcodeElementTypes.URL;
   correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;

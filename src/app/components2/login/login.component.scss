@@ -1,0 +1,22 @@
+.login-form{
+    display: flex;
+    flex-direction: column;
+}
+.icon-mail{
+    position: absolute;
+    right: 12%;
+    top: 37%;
+  }
+
+  .icon-pass{
+    position: absolute;
+    right: 12%;
+    top: 54%;
+  }
+
+  .input-email{
+      margin-bottom: 14px;
+  }
+  .btn-login{
+      margin-top: 20px;
+  }

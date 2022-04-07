@@ -1,10 +1,12 @@
 <div>  
-    <a class="badge badge-warning" style="color:black" routerLink='/add-handicap'>add handicap</a>
+    <a class="badge badge-warning" class="btn btn-success" style="color:white" routerLink='/add-handicap'>add handicap</a>
 </div>
 
 <div *ngIf="viewMode; else editable_handicap">
   <div *ngIf="currentHandicap.id">
-    <h4>Handicap</h4>
+    <a class="badge badge-warning" class="btn btn-primary" style="color:white; margin-top:10px; margin-bottom: 10px;" routerLink="/handicap-list/{{ currentHandicap.id }}">
+        Éditer
+      </a>
     <div>
       <label><strong>id:</strong></label>
       {{ currentHandicap.id }}
@@ -22,13 +24,7 @@
     <div>
       <label><strong>historique:</strong></label>
       {{ currentHandicap.historique }}
-      <a
-        class="badge badge-warning"
-        style="color: black"
-        routerLink="/handicap-list/{{ currentHandicap.id }}"
-      >
-        Edit
-      </a>
+      
     </div>
   </div>
   <div *ngIf="!currentHandicap">
@@ -39,7 +35,7 @@
 <ng-template #editable_handicap>
   <div *ngIf="currentHandicap.id" class="edit-form">
     <h4>Handicap</h4>
-    <form>
+    <form style="margin-bottom: 10px;">
       <div class="form-group">
         <label for="title">Name</label>
         <input
@@ -84,15 +80,16 @@
         </button>
       </div>
     </form>
-    <button class="badge badge-danger mr-2" (click)="deleteHandicap()">
-      Delete
+    <button class="btn btn-danger" (click)="deleteHandicap()">
+        Supprimer
     </button>
     <button
       type="submit"
-      class="badge badge-success mb-2"
+      style="margin-left: 10px;"
+      class="btn btn-info"
       (click)="updateHandicap()"
     >
-      Update
+    Mettre à jour
     </button>
     <p>{{ message }}</p>
   </div>
@@ -106,7 +103,7 @@
       accept="image/*"
       style="display: none"
     />
-    <button mat-button color="warn">Upload Image2</button>
+    <button mat-button class="btn btn-primary">Télécharger une image</button>
   </form>
   <!-- end upload image -->
   <div *ngIf="!currentHandicap.id">
